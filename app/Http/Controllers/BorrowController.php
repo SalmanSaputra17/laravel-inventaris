@@ -19,10 +19,10 @@ class BorrowController extends Controller
     {
         if (auth()->user()->level_id == 1 || auth()->user()->level_id == 2) {
             $borrows = Borrow::all();
-        }elseif (auth()->user()->level_id == 3) {
+        } elseif (auth()->user()->level_id == 3) {
             $borrows = Borrow::where('user_id', auth()->user()->id)->get();
         }
-        
+
         return view('borrow.index', compact('borrows'));
     }
 
