@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Level;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -28,7 +29,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('auth.register');
+        $levels = Level::all();
+
+        return view('auth.register', compact('levels'));
     }
 
     /**

@@ -73,10 +73,10 @@
 
                             <select name="level_id" id="level_id"
                                 class="form-control{{ $errors->has('level_id') ? ' is-invalid' : '' }}" required>
-                                <option disabled selected>--choose level--</option>
-                                <option style="color: #000;" value="1">Admin</option>
-                                <option style="color: #000;" value="2">Operator</option>
-                                <option style="color: #000;" value="3">Employee</option>
+                                <option disabled selected>Choose Level</option>
+                                @foreach($levels as $level)
+                                <option style="color: #000;" value="{{ $level->id }}">{{ $level->level_name }}</option>
+                                @endforeach
                             </select>
 
                             @if ($errors->has('level_id'))
